@@ -13,7 +13,11 @@
       <span class="topic-link"><a href="{{ topics.get_absolute_url }}">{{ topics.name }}</a>{%if not forloop.last%},{%endif%}</span>
       {%endspaceless%}
    {% endfor %}
-   <section class="content">{{ post.content|linebreaks }}</section>
+   {% if post.banner %}
+    <br /><br />
+    <img src="{{ post.banner.url }}" width="90%" alt="Banner image">
+   {% endif %}
+   <section class="content">{{ post.content|safe|linebreaks }}</section>
 
 </article>
 {% endblock %}

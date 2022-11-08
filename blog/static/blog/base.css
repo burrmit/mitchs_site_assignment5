@@ -191,9 +191,9 @@ header {
   padding-right: 100px;
 }
 
-input[type=text], select, textarea {
+input[type=text], input[type=email], select, textarea {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -204,7 +204,7 @@ input[type=text], select, textarea {
 input[type=submit] {
   background-color: #D6D6D6;
   color: black;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -215,12 +215,31 @@ input[type=submit]:hover {
   color: white;
 }
 
+form .errorlist {
+  font-size: 0.7em;
+  font-weight: bold;
+  color: red;
+  padding: 0 0 0 1.5em;
+  margin: 0;
+}
+
 /* about.html css */
 #photo_me {
   width:150px;
   height:150px;
   float: left;
   padding-right: 20px;
+}
+
+#photo_context_bar {
+  width: 100%;
+  padding: 0px 10px 100px 0px;
+}
+
+.photo_contest_img {
+  height:98px;
+  float: left;
+  padding-right: 10px;
 }
 
 #about_me {
@@ -230,4 +249,27 @@ input[type=submit]:hover {
 
 #content {
   padding-right: 20px;
+}
+
+/* Messages */
+.django-messages {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0;
+  list-style: none;
+}
+
+.django-messages div {
+  padding: 1rem;
+}
+
+.django-messages .success {
+  background: #bdfcb3;
+  color: #355430;
+}
+
+.form-table {
+  font-family: Helvetica;
+  font-size: 14px;
+  text-align:left;
 }

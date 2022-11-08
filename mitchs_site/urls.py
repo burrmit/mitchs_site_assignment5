@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 from blog import views
 
 urlpatterns = [
@@ -29,12 +30,13 @@ urlpatterns = [
         views.PostDetailView.as_view(),
         name='post-detail',
     ),
-    path(
-        'posts/<int:pk>/',
-        views.PostDetailView.as_view(),
-        name='post-detail'
-    ),
+    path('posts/<int:pk>/', views.PostDetailView.as_view(), name='post-detail'),
     path('terms/', views.terms_and_conditions, name='terms-and-conditions'),
     path('topics/', views.TopicListView.as_view(), name='topic-list'),
     path('topics/<slug:slug>/', views.TopicDetailView.as_view(), name='topic-detail'),
-]
+    path('form-example/', views.form_example, name='form-example'),
+    path('formview-example/', views.FormViewExample.as_view(), name='formview-example'),
+    path('contact-form/', views.ContactFormView.as_view(), name='contact-form'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('photo_contest/', views.PhotoContestView.as_view(), name='photo-contest'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
